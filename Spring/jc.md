@@ -45,3 +45,18 @@ http://projects.spring.io/spring-framework/
 ![1554384060826](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554384060826.png)
 
 ![1554384184458](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554384184458.png)
+
+8.Bean
+
+1）Bean的常用配置项：Id、Class、Scope、Constructor arguments、Properties、Autowiring mode、lazy-initialization/destruction method。只有Class是必须的。
+
+2）Bean的作用域：singleton（单例，每一个Bean容器中只存在一份）、prototype（每次请求创建新的实例，destroy方式不生效）、request（每次http请求创建一个实例且仅在当前request内有效）、session（每次请求http创建，当前session内有效）、global session（每次基于portlet的web中有效，如果是在web中，同session）。
+
+3）Bean的生命周期：定义、初始化、使用、销毁。
+
+![1554535473239](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554535473239.png)
+
+![1554535591301](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554535591301.png)
+
+![1554535638404](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554535638404.png)
+
