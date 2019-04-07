@@ -60,3 +60,45 @@ http://projects.spring.io/spring-framework/
 
 ![1554535638404](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554535638404.png)
 
+4）Aware接口：实现Aware接口的bean在被初始化之后，可以获取相应资源。通过Aware接口，可以对Spring相应资源进行操作。为对Spring进行简单的扩展提供了方便的入口。
+
+5）自动装配：
+
+![1554539667147](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554539667147.png)
+
+6）Resource
+
+![1554541830178](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554541830178.png)
+
+![1554541902198](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554541902198.png)
+
+9.Bean的注解实现和例子
+
+1）<context:component-scan>包含<context:annotation-config>,通常在使用前者后，不再使用后者。AutoWiredAnnotationBeanPostProcessor和CommonAnnotationBeanPostProcessor也会被包含进来。
+
+2）默认情况下，类被自动发现并注册bean的条件是：使用@Component，@Repository，@Service，@Controller注解或者使用@Component自定义注解。
+
+![1554543197622](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554543197622.png)
+
+![1554543237684](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554543237684.png)
+
+3）扫描过程中组件被自动检测，那么Bean名称是由BeanNameGenerator生成的（@Component，@Repository，@Service，@Controller都会有个name属性用于显式设置Bean Name）。可以自定义命名策略，实现BeanNameGenerator接口，**一定要包含一个无参构造器**。
+
+4）@Required注解适用于bean属性的setter方法，这个注解仅仅表示，受影响的bean属性必须在配置的时候被填充，通过在bean定义或者通过自动装配一个明确的属性值。在使用Autowired的时候，每个类只能由一个required=true.
+
+5）@AutoWired的必要属性建议使用@Required注解。可以使用@Autowired注解那些总所周知的解析依赖性接口（如：BeanFactory、ApplicationConetxt、Environment、ResourceLoader、ApplicationEventPublisher、MessageSource）。@AutoWired是由Spring BeanPostProcessor处理的，所以不能在自己的BeanPostProcessor或者BeanFactoryPostProcessor类型应用这些注解，这些类型必须通过XML或者Spring的@Bean注解来加载。@order注解只对list有效，对map无效。
+
+6）@Qualifier可以缩小范围（或指定唯一），也可以用于指定单独的构造器参数或者方法参数。可以用于注解几何类型变量。
+
+![1554623029592](C:\Users\郭艳艳\AppData\Roaming\Typora\typora-user-images\1554623029592.png)
+
+在自定义注解的时候，可以在上面用@Qualifer注解，这样就定义了我们注解的@Qualifer.
+
+10.基于Java容器的注解
+
+1）@Bean标识一个用于配置和初始化一个由SpringIOC容器管理的新对象的方法，类似于XML配置文件的<bean/>
+
+2）可以在Spring的@Component注解的类中使用@Bean注解任何方法（仅仅式可以）。通常@Bean与@Configuration搭配。
+
+3）@ImportResource引入资源文件。
+
