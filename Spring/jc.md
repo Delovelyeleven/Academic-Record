@@ -102,5 +102,8 @@ http://projects.spring.io/spring-framework/
 
 3）@ImportResource引入资源文件。
 
+11.AOP
 
+1）AOP：Aspect Oriented Programming,面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护。主要是实现日志记录、性能统计、安全控制、事务处理、异常处理等等。
 
+2）
