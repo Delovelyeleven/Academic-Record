@@ -104,6 +104,12 @@ http://projects.spring.io/spring-framework/
 
 11.AOP
 
-1）AOP：Aspect Oriented Programming,面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护。主要是实现日志记录、性能统计、安全控制、事务处理、异常处理等等。
+1）AOP：Aspect Oriented Programming,面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护。主要是实现日志记录、性能统计、安全控制、事务处理、异常处理等等。切面和功能是垂直的。
 
-2）
+2）实现方式：预编译（AspectJ）、运行期动态代理（JDK动态代理、CGLib动态代理---SpringAOP、JbossAOP）
+
+3）用途：提供了声明式的企业服务，特别是EJB的替代服务的声明。允许用户定制自己的方面，以完成OOP与AOP的互补。
+
+4）Spring AOP的实现：纯Java实现，不需要特殊的编译过程，不需要控制类加载器层次。目前只支持方法执行连接点（通知Spring Bean的方法执行）。不是为了提供最完整的AOP实现，而是侧重于提供一种AOP实现和Spring IOC容器之间的整合，用于帮助解决企业应用中常见的问题。Spring AOP不会与AspectJ竞争，从而提供综合全面的AOP解决方案。
+
+5）Schema：Spring所有的切面和通知器都必须放在一个<aop:config>内（可以配置多个<aop:config>元素），每一个<aop:config>可以包含pointcut、advisor和aspect（它们必须按这个顺序来声明）。这种风格大量的使用了Spring自动代理。
